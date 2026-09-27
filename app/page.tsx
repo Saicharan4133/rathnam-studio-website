@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Hero } from '@/components/home/hero'
 import { JsonLd } from '@/components/seo/json-ld'
+import { siteConfig } from '@/lib/site-config'
 
 const WhatWeDo = dynamic(() => import('@/components/home/what-we-do').then((mod) => mod.WhatWeDo))
 const FeaturedGallery = dynamic(() =>
@@ -11,7 +12,6 @@ const StudioStatement = dynamic(() =>
   import('@/components/home/studio-statement').then((mod) => mod.StudioStatement)
 )
 const FinalCta = dynamic(() => import('@/components/home/final-cta').then((mod) => mod.FinalCta))
-import { siteConfig } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   alternates: {
