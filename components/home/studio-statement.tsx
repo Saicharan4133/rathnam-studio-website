@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { CutReveal } from '@/components/shared/cut-reveal'
 
 const lines = ['YOUR IDEA.', 'OUR CRAFT.', 'ONE PERMANENT STORY.']
@@ -18,7 +18,7 @@ export function StudioStatement() {
       <div className="relative mx-auto max-w-3xl px-5 text-center md:px-10">
         <h2 className="font-display text-4xl leading-tight tracking-tight text-bone md:text-6xl">
           {lines.map((line, i) => (
-            <motion.span
+            <m.span
               key={line}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -27,10 +27,10 @@ export function StudioStatement() {
               className={`block ${i === 2 ? 'text-gold' : ''}`}
             >
               {line}
-            </motion.span>
+            </m.span>
           ))}
         </h2>
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -39,7 +39,7 @@ export function StudioStatement() {
         >
           Every tattoo begins with an idea. We turn that idea into a piece designed with intention,
           detail and character.
-        </motion.p>
+        </m.p>
       </div>
       <CutReveal />
     </section>

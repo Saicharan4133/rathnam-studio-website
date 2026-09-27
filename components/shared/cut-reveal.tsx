@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 const viewport = { once: true, amount: 0.15 } as const
 const emblemTiming = { duration: 0.6, times: [0, 0.3, 0.65, 1], ease: 'easeOut' as const }
@@ -20,7 +20,7 @@ const emblemTiming = { duration: 0.6, times: [0, 0.3, 0.65, 1], ease: 'easeOut' 
 export function CutReveal() {
   return (
     <div aria-hidden="true" className="motion-reduce:hidden pointer-events-none absolute inset-0 z-30">
-      <motion.div
+      <m.div
         className="absolute inset-0 bg-[#0a0a0a]"
         style={{ transformOrigin: 'bottom' }}
         initial={{ scaleY: 1 }}
@@ -28,22 +28,22 @@ export function CutReveal() {
         viewport={viewport}
         transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
       />
-      <motion.div
+      <m.div
         className="fixed inset-0 flex items-center justify-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: [0, 1, 1, 0] }}
         viewport={viewport}
         transition={emblemTiming}
       >
-        <motion.span
+        <m.span
           className="block h-8 w-8 rotate-45 border border-gold/80"
           initial={{ scale: 0.3 }}
           whileInView={{ scale: [0.3, 1, 1, 0.6] }}
           viewport={viewport}
           transition={emblemTiming}
         />
-      </motion.div>
-      <motion.div
+      </m.div>
+      <m.div
         className="absolute inset-x-0 top-0 h-[2px]"
         style={{ background: 'linear-gradient(90deg, transparent, #c9a24b, transparent)' }}
         initial={{ opacity: 1 }}

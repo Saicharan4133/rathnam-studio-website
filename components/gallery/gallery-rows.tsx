@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { PreloadTrigger } from '@/components/shared/preload-trigger'
 import type { galleryImages } from '@/lib/site-config'
@@ -32,7 +32,7 @@ export function GalleryRows({
         const fromSide = rowIndex % 2 === 0 ? -60 : 60
 
         return (
-          <motion.div
+          <m.div
             key={rowIndex}
             initial={{ opacity: 0, x: fromSide }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -87,7 +87,7 @@ export function GalleryRows({
               </div>
             </div>
 
-          </motion.div>
+          </m.div>
         )
       })}
     </div>

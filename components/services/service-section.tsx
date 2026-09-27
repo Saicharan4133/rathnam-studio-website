@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import type { services } from '@/lib/site-config'
 import { ImageMarquee, type MarqueeImage } from '@/components/shared/image-marquee'
 import { PreloadTrigger } from '@/components/shared/preload-trigger'
@@ -39,7 +39,7 @@ export function ServiceSection({
             imageFromLeft ? '' : 'md:[&>*:first-child]:order-2'
           }`}
         >
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: imageFromLeft ? -60 : 60, rotate: rotation, clipPath: 'inset(4% 4% 4% 4%)' }}
             whileInView={{ opacity: 1, x: 0, rotate: 0, clipPath: 'inset(0% 0% 0% 0%)' }}
             viewport={{ once: true, margin: '-120px' }}
@@ -54,9 +54,9 @@ export function ServiceSection({
               className="object-cover"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: imageFromLeft ? 40 : -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-120px' }}
@@ -80,7 +80,7 @@ export function ServiceSection({
             >
               EXPLORE SERVICE <span aria-hidden="true">→</span>
             </a>
-          </motion.div>
+          </m.div>
         </div>
       </div>
 

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { siteConfig } from '@/lib/site-config'
 import { useScrollLock } from '@/hooks/use-scroll-lock'
@@ -107,7 +107,7 @@ export function Navbar() {
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
+          <m.div
             initial={{ y: '-100%' }}
             animate={{ y: 0, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }}
             exit={{ y: '-100%', transition: { duration: 0.25, ease: 'easeIn' } }}
@@ -133,7 +133,7 @@ export function Navbar() {
 
             <nav aria-label="Mobile primary" className="flex flex-1 flex-col justify-center gap-2 px-8">
               {siteConfig.nav.map((item, i) => (
-                <motion.div
+                <m.div
                   key={item.href}
                   initial={{ opacity: 0, x: -24 }}
                   animate={{ opacity: 1, x: 0, transition: { delay: 0.08 * i } }}
@@ -145,7 +145,7 @@ export function Navbar() {
                     <span className="text-sm text-gold">{item.number}</span>
                     {item.label}
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
             </nav>
 
@@ -157,7 +157,7 @@ export function Navbar() {
                 BOOK NOW
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>
