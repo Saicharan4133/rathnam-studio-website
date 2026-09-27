@@ -39,10 +39,11 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[65] transition-all duration-500 ${
-          scrolled ? 'border-b border-bone/10 bg-[#0a0a0a]/85 backdrop-blur-md' : 'bg-transparent'
+        className={`fixed inset-x-0 top-0 z-[65] border-b transition-[background-color,border-color] duration-300 ${
+          scrolled
+            ? 'border-bone/10 bg-[#0a0a0a]/95 md:bg-[#0a0a0a]/85 md:backdrop-blur-md'
+            : 'border-transparent bg-transparent'
         }`}
-        
       >
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-4 md:px-10">
           <Link
@@ -55,8 +56,8 @@ export function Navbar() {
                 src="/images/logo.jpeg"
                 alt={`${siteConfig.name} logo`}
                 fill
-  loading="lazy"
-  className="object-cover"
+                priority
+                className="object-cover"
                 sizes="32px"
               />
             </span>
@@ -107,10 +108,11 @@ export function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[90] flex flex-col bg-[#0a0a0a] md:hidden"
+            initial={{ y: '-100%' }}
+            animate={{ y: 0, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }}
+            exit={{ y: '-100%', transition: { duration: 0.25, ease: 'easeIn' } }}
+            style={{ willChange: 'transform' }}
+            className="fixed inset-0 z-[90] isolate flex h-[100dvh] flex-col overflow-y-auto overscroll-contain bg-[#0a0a0a] md:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
