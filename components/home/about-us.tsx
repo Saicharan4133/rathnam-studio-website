@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { about, reviewImages } from '@/lib/site-config'
 import { CutReveal } from '@/components/shared/cut-reveal'
 import { ImageMarquee } from '@/components/shared/image-marquee'
@@ -22,7 +22,7 @@ export function AboutUs() {
 
       <div className="mx-auto max-w-[1600px] px-5 pt-24 md:px-10 md:pt-36">
         <div className="grid grid-cols-1 items-center gap-14 md:grid-cols-2 md:gap-16">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
@@ -48,9 +48,9 @@ export function AboutUs() {
                 sizes="180px"
               />
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
@@ -68,7 +68,7 @@ export function AboutUs() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
 

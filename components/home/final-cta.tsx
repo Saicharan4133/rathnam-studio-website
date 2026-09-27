@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { whatsappHref } from '@/lib/site-config'
 import { CutReveal } from '@/components/shared/cut-reveal'
 
@@ -14,7 +14,7 @@ export function FinalCta() {
         style={{ backgroundSize: '100% 100%' }}
       />
       <div className="relative mx-auto max-w-2xl px-5 text-center md:px-10">
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -26,8 +26,8 @@ export function FinalCta() {
             PERMANENT
           </span>
           ?
-        </motion.h2>
-        <motion.p
+        </m.h2>
+        <m.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -35,8 +35,8 @@ export function FinalCta() {
           className="mx-auto mt-6 max-w-md text-base text-bone/70 md:text-lg"
         >
           Tell us your idea and let&apos;s create something that belongs to you.
-        </motion.p>
-        <motion.div
+        </m.p>
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -59,7 +59,7 @@ export function FinalCta() {
           >
             CHAT ON WHATSAPP
           </a>
-        </motion.div>
+        </m.div>
       </div>
       <CutReveal />
     </section>

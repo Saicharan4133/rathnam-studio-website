@@ -9,6 +9,7 @@ import { Navbar } from '@/components/layout/navbar'
 import { FloatingActions } from '@/components/layout/floating-actions'
 import { RouteTransition } from '@/components/layout/route-transition'
 import { RoutePreloader } from '@/components/layout/route-preloader'
+import { MotionProvider } from '@/components/layout/motion-provider'
 
 // Purely decorative and desktop-only; split out of the initial bundle so it
 // never delays first paint or the main thread on first load.
@@ -108,14 +109,16 @@ export default function RootLayout({
         className={`${anton.variable} ${inter.variable} antialiased bg-background text-foreground`}
         style={{ backgroundColor: '#0a0a0a' }}
       >
-        <SmoothScrollProvider>
-          <CustomCursor />
-          <Navbar />
-          <RoutePreloader />
-          <RouteTransition>{children}</RouteTransition>
-          <FloatingActions />
-          <div className="film-grain" aria-hidden="true" />
-        </SmoothScrollProvider>
+        <MotionProvider>
+          <SmoothScrollProvider>
+            <CustomCursor />
+            <Navbar />
+            <RoutePreloader />
+            <RouteTransition>{children}</RouteTransition>
+            <FloatingActions />
+            <div className="film-grain" aria-hidden="true" />
+          </SmoothScrollProvider>
+        </MotionProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

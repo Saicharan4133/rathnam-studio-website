@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { useScrollLock } from '@/hooks/use-scroll-lock'
 
@@ -38,7 +38,7 @@ export function Lightbox({
   return (
     <AnimatePresence>
       {open && index !== null && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -86,7 +86,7 @@ export function Lightbox({
             <ChevronRight className="h-5 w-5" />
           </button>
 
-          <motion.div
+          <m.div
             key={images[index].id}
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -102,12 +102,12 @@ export function Lightbox({
               sizes="90vw"
               priority
             />
-          </motion.div>
+          </m.div>
 
           <p className="micro-label absolute bottom-6 left-1/2 -translate-x-1/2 text-bone/60">
             {String(index + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
           </p>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   )

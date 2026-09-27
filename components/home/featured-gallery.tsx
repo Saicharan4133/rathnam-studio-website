@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { galleryImages } from '@/lib/site-config'
 import { CutReveal } from '@/components/shared/cut-reveal'
 
@@ -31,7 +31,7 @@ export function FeaturedGallery() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -45,11 +45,11 @@ export function FeaturedGallery() {
               className="object-cover"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-2 gap-4 md:gap-6">
             {supporting.map((img, i) => (
-              <motion.div
+              <m.div
                 key={img.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export function FeaturedGallery() {
                   className="object-cover transition-transform duration-700 hover:scale-105"
                   sizes="(min-width: 768px) 25vw, 50vw"
                 />
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

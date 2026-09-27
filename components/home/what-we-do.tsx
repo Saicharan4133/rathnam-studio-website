@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { services, galleryImages } from '@/lib/site-config'
 import { CutReveal } from '@/components/shared/cut-reveal'
 import { PreloadTrigger } from '@/components/shared/preload-trigger'
@@ -34,7 +34,7 @@ export function WhatWeDo() {
           {services.map((service, i) => {
             const fromLeft = i % 2 === 0
             return (
-              <motion.div
+              <m.div
                 key={service.slug}
                 initial={{ opacity: 0, x: fromLeft ? -40 : 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -68,7 +68,7 @@ export function WhatWeDo() {
                     sizes="144px"
                   />
                 </div>
-              </motion.div>
+              </m.div>
             )
           })}
           <div className="border-t border-bone/10" />
