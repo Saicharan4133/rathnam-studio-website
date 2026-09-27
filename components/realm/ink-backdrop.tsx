@@ -60,7 +60,7 @@ export function InkBackdrop({
   className?: string
 }) {
   return (
-    <div className={cn('absolute inset-0 overflow-hidden', className)} aria-hidden="true">
+    <div className={cn('hero-backdrop pointer-events-none absolute inset-0 overflow-hidden', className)} aria-hidden="true">
       {/* sharp, in-focus base photo */}
       <div
         className={cn(

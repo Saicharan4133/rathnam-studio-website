@@ -35,12 +35,18 @@ export function Navbar() {
 
   useEffect(() => {
     document.documentElement.style.overflow = menuOpen ? 'hidden' : ''
+    document.documentElement.dataset.mobileMenuOpen = menuOpen ? 'true' : 'false'
+
+    return () => {
+      document.documentElement.style.overflow = ''
+      delete document.documentElement.dataset.mobileMenuOpen
+    }
   }, [menuOpen])
 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[65] transition-all duration-500 ${
+        className={`fixed inset-x-0 top-0 z-[110] transition-all duration-500 ${
           scrolled ? 'border-b border-bone/10 bg-[#0a0a0a]/85 backdrop-blur-md' : 'bg-transparent'
         }`}
       >
@@ -110,7 +116,7 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[90] flex flex-col bg-[#0a0a0a] md:hidden"
+            className="mobile-menu fixed inset-0 z-[100] flex flex-col bg-[#0a0a0a] md:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"

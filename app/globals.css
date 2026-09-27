@@ -151,6 +151,38 @@
   .breathing-scale {
     animation: breathe 6s ease-in-out infinite;
     will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .hero-backdrop {
+    contain: paint;
+    isolation: isolate;
+  }
+
+  .mobile-menu {
+    contain: strict;
+    overscroll-behavior: contain;
+    isolation: isolate;
+    background: #0a0a0a;
+  }
+
+  @media (max-width: 767px) {
+    .hero-backdrop .breathing-scale {
+      animation: none;
+      transform: none;
+      will-change: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .breathing-scale,
+    .hero-scroll-indicator,
+    .marquee-track,
+    .sheen-sweep {
+      animation: none;
+      will-change: auto;
+    }
   }
   .hero-fade-in {
     animation: hero-fade-in 0.5s ease-out both;
