@@ -10,7 +10,7 @@ const lines = ['WE CREATE', 'TIMELESS', 'TATTOOS THAT', 'TELL YOUR STORY']
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#0a0a0a]">
+    <section className="hero-section relative isolate flex min-h-[100svh] w-full items-center overflow-hidden bg-[#0a0a0a]">
       <InkBackdrop mood="home" />
       <PreloadTrigger images={nextSectionImages} />
 
