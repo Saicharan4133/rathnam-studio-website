@@ -196,8 +196,14 @@
     }
   }
   .hero-line-reveal {
-    animation: hero-line-reveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-delay: calc(0.1s + (var(--hero-line) * 0.06s));
+    animation: hero-line-reveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--hero-line) * 0.05s);
+  }
+  /* The headline is the mobile LCP element; it must paint on the first frame. */
+  @media (max-width: 767px) {
+    .hero-line-reveal {
+      animation: none;
+    }
   }
   .hero-scroll-indicator {
     animation: hero-scroll-indicator 1.8s ease-in-out infinite;
@@ -245,7 +251,7 @@
 
   @keyframes hero-line-reveal {
     from {
-      transform: translateY(100%);
+      transform: translateY(45%);
     }
     to {
       transform: translateY(0);
