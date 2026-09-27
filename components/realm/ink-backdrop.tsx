@@ -60,7 +60,10 @@ export function InkBackdrop({
   className?: string
 }) {
   return (
-    <div className={cn('absolute inset-0 overflow-hidden', className)} aria-hidden="true">
+    <div
+      className={cn('absolute inset-0 overflow-hidden [contain:strict]', className)}
+      aria-hidden="true"
+    >
       {/* sharp, in-focus base photo */}
       <div
         className={cn(
@@ -96,7 +99,7 @@ export function InkBackdrop({
           alt=""
           fill
           quality={30}
-          loading="lazy"
+          loading={intensity === 'full' ? 'eager' : 'lazy'}
           className={cn('object-cover blur-md', moodPosition[mood])}
           sizes="100vw"
         />

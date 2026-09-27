@@ -121,6 +121,17 @@
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
+  /*
+   * A fixed, full-viewport mix-blend-mode layer forces mobile GPUs to
+   * re-blend the entire page on every scroll frame, which shows up as
+   * flicker/tearing on images underneath. The 5% grain is imperceptible
+   * on small screens, so it's desktop-only.
+   */
+  @media (max-width: 767px) {
+    .film-grain {
+      display: none;
+    }
+  }
   .vignette::after {
     content: '';
     position: absolute;
@@ -139,11 +150,14 @@
    * while it's off-screen, then automatically "warm up" and render it as the
    * user scrolls near it — the same look, computed only when it's about to
    * matter. contain-intrinsic-size keeps scrollbar/scroll position stable
-   * before the real size is known.
+   * before the real size is known. The `auto` keyword makes the browser
+   * remember each section's real rendered height after first paint, so
+   * scrolling back up doesn't collapse it to the 900px guess and cause the
+   * page to jump/reflow (a major source of mobile "flicker").
    */
   .cv-auto {
     content-visibility: auto;
-    contain-intrinsic-size: 0 900px;
+    contain-intrinsic-size: auto 900px;
   }
 }
 
@@ -151,6 +165,21 @@
   .breathing-scale {
     animation: breathe 6s ease-in-out infinite;
     will-change: transform;
+    backface-visibility: hidden;
+  }
+  /*
+   * Continuously scaling a full-screen rasterized photo makes fine detail
+   * shimmer on mobile GPUs and keeps a huge layer re-compositing forever.
+   */
+  @media (max-width: 767px) {
+    .breathing-scale {
+      animation: none;
+      will-change: auto;
+    }
+  }
+  /* Set by useScrollLock while a full-screen overlay (menu, lightbox) is open. */
+  html[data-overlay-open] :is(.breathing-scale, .marquee-track, .cloud-drift-slow, .cloud-drift-fast, .sheen-sweep, .hero-scroll-indicator) {
+    animation-play-state: paused;
   }
   .hero-fade-in {
     animation: hero-fade-in 0.5s ease-out both;

@@ -24,6 +24,7 @@ export function useScrollLock(locked: boolean) {
     const prevOverflow = document.documentElement.style.overflow
 
     pauseSmoothScroll()
+    document.documentElement.dataset.overlayOpen = ''
     document.documentElement.style.overflow = 'hidden'
     body.style.position = 'fixed'
     body.style.top = `-${scrollY}px`
@@ -34,6 +35,7 @@ export function useScrollLock(locked: boolean) {
       body.style.top = prevTop
       body.style.width = prevWidth
       document.documentElement.style.overflow = prevOverflow
+      delete document.documentElement.dataset.overlayOpen
       window.scrollTo(0, scrollY)
       resumeSmoothScroll()
     }
