@@ -12,6 +12,12 @@ const nextConfig = {
   // Trims framer-motion/lucide-react imports to only the modules actually
   // used per file instead of pulling in the whole library, shrinking the JS
   // shipped to the browser without changing any behavior.
+  turbopack: {
+    resolveAlias: {
+      '../build/polyfills/polyfill-module': './lib/empty-polyfill.js',
+      'next/dist/build/polyfills/polyfill-module': './lib/empty-polyfill.js',
+    },
+  },
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
