@@ -31,6 +31,16 @@ export function AboutUs() {
           <m.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}>
             <p className="micro-label mb-3 text-gold">{about.role}</p>
             <h2 className="font-display text-6xl tracking-tight text-bone md:text-8xl">{about.name}</h2>
+            <div className="mt-10 grid grid-cols-2 gap-6 border-t border-white/15 pt-6">
+              <div>
+                <p className="font-display text-4xl text-gold md:text-5xl">5+</p>
+                <p className="micro-label mt-2 text-bone/65">Years of experience</p>
+              </div>
+              <div>
+                <p className="font-display text-4xl text-gold md:text-5xl">500+</p>
+                <p className="micro-label mt-2 text-bone/65">Projects completed</p>
+              </div>
+            </div>
           </m.div>
         </div>
       </div>
