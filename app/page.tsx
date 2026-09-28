@@ -14,8 +14,26 @@ const FinalCta = dynamic(() => import('@/components/home/final-cta').then((mod) 
 import { siteConfig } from '@/lib/site-config'
 
 export const metadata: Metadata = {
+  title: 'Tattoo Studio in Vijayawada',
+  description:
+    'Explore custom tattoos, piercing and cover-up artistry at Rathnam Tattoos Studio in Vijayawada, Andhra Pradesh.',
   alternates: {
     canonical: '/',
+  },
+  openGraph: {
+    title: `${siteConfig.name} — Ink Your Story`,
+    description:
+      'Explore custom tattoos, piercing and cover-up artistry at Rathnam Tattoos Studio in Vijayawada, Andhra Pradesh.',
+    url: '/',
+    type: 'website',
+    images: ['/images/hero/100-optimized.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${siteConfig.name} — Ink Your Story`,
+    description:
+      'Explore custom tattoos, piercing and cover-up artistry at Rathnam Tattoos Studio in Vijayawada, Andhra Pradesh.',
+    images: ['/images/hero/100-optimized.webp'],
   },
 }
 
@@ -25,7 +43,7 @@ const tattooParlorSchema = {
   name: siteConfig.name,
   alternateName: 'Rathnam Studio',
   description: siteConfig.description,
-  image: `${siteConfig.url}/images/services/permanent-tattoo.jpg`,
+  image: `${siteConfig.url}/images/hero/100-optimized.webp`,
   logo: `/images/logo.jpeg`,
   telephone: siteConfig.phone,
   url: siteConfig.url,

@@ -18,11 +18,13 @@ export const metadata: Metadata = {
     description,
     url: '/services',
     type: 'website',
+    images: ['/images/hero/100-optimized.webp'],
   },
   twitter: {
     card: 'summary_large_image',
     title: `Services | ${siteConfig.name}`,
     description,
+    images: ['/images/hero/100-optimized.webp'],
   },
 }
 
