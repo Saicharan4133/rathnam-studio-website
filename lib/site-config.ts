@@ -31,7 +31,7 @@ export const siteConfig = {
   },
   logoImage: '/images/logo.jpeg',
   movedLogoImage: '/images/gallery/source-06.webp',
-  shareImage: '/images/hero/100-optimized.webp',
+  shareImage: '/images/og-default.jpg',
   heroImages: {
     home: '/images/hero/100-optimized.webp',
     services: '/images/hero/101.webp',
@@ -46,7 +46,6 @@ export const siteConfig = {
     about: { width: 960, height: 1280 },
     contact: { width: 720, height: 1280 },
   },
-  pendingShareImage: '/images/og-default.jpg',
   homeSupportLine: 'Custom tattoo, piercing, scar cover-up and tattoo removal studio in Vijayawada, Andhra Pradesh.',
   contact: {
     emailjs: {
@@ -66,7 +65,6 @@ export const siteConfig = {
     phoneAssignment: '[CONFIRM: verify whether both phone numbers serve both studios or assign a number to each location]',
     analytics: '[CONFIRM: add a Google Tag Manager container ID to send event hooks to analytics]',
     touchUpPolicy: '[CONFIRM: provide the touch-up eligibility, timing and cost policy]',
-    analytics: '[CONFIRM: add a Google Tag Manager container ID to send event hooks to analytics]',
     hygiene: '[CONFIRM: provide the studio-approved hygiene and sterilisation description]',
     removalMethod: '[CONFIRM: confirm whether tattoo removal is currently offered and the method used]',
     reviewQuotes: '[CONFIRM: provide real client quotes and permission to publish them]',
