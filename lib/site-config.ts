@@ -8,7 +8,7 @@ export const siteConfig = {
   tagline: "INK YOUR STORY",
   description:
     "Custom tattoos, piercing, scar cover-up and tattoo removal in Vijayawada, Andhra Pradesh.",
-  url: "https://rathnamstudio-iota.vercel.app",
+  url: "https://rathnamstudio.in",
 
   phone: "+91 97004 77001",
   phoneHref: "tel:+919700477001",
