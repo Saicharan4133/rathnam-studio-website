@@ -1,16 +1,11 @@
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { siteConfig } from '@/lib/site-config'
 
 // Real studio photography only — actual finished tattoos on actual skin,
 // pulled straight from the studio's own portfolio. No generated or stock
 // imagery, and no edits beyond standard resizing/compression.
-export const moodImage: Record<Mood, string> = {
-  home: '/images/hero/100-optimized.webp',
-  services: '/images/hero/101.webp',
-  gallery: '/images/hero/102.webp',
-  about: '/images/hero/103.webp',
-  contact: '/images/hero/104.webp',
-}
+export const moodImage: Record<Mood, string> = siteConfig.heroImages
 
 const moodGradient: Record<Mood, string> = {
   home: 'from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent',
@@ -73,11 +68,12 @@ export function InkBackdrop({
       >
         <Image
           src={moodImage[mood]}
-          alt="Finished tattoo work from the studio"
-          fill
+          alt=""
+          width={siteConfig.heroImageDimensions[mood].width}
+          height={siteConfig.heroImageDimensions[mood].height}
           priority={intensity === 'full'}
-          fetchPriority="auto"
-          className={cn('object-cover', moodPosition[mood])}
+          fetchPriority="high"
+          className={cn('absolute inset-0 h-full w-full object-cover', moodPosition[mood])}
           sizes="100vw"
         />
       </div>

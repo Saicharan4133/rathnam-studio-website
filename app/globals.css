@@ -108,6 +108,13 @@
     text-transform: uppercase;
     font-size: 0.72rem;
   }
+  .contact-form-select option {
+    background-color: #111111;
+    color: #f2f0ea;
+  }
+  .contact-form-select option:disabled {
+    color: #9a9892;
+  }
   .text-stroke-gold {
     color: transparent;
     -webkit-text-stroke: 1px rgba(201, 162, 75, 0.35);
@@ -127,9 +134,19 @@
    * flicker/tearing on images underneath. The 5% grain is imperceptible
    * on small screens, so it's desktop-only.
    */
-  @media (max-width: 767px) {
+  @media (max-width: 767px), (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
     .film-grain {
       display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
   .vignette::after {

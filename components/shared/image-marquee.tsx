@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 export type MarqueeImage = {
   src: string
   alt: string
+  fullSrc?: string
 }
 
 /**

@@ -1,6 +1,6 @@
 'use client'
 
-import { Phone } from 'lucide-react'
+import { MapPin, Phone } from 'lucide-react'
 import { siteConfig, whatsappHref } from '@/lib/site-config'
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -12,27 +12,19 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export function FloatingActions() {
+  const directionsUrl = siteConfig.locations[0].mapsDirectionsUrl
+
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
-      <a
-        href={siteConfig.phoneHref}
-        aria-label={`Call ${siteConfig.name}`}
-        data-cursor="interactive"
-        className="group flex h-13 w-13 items-center justify-center rounded-full border border-gold/40 bg-[#111111]/90 text-gold shadow-lg backdrop-blur transition-transform duration-200 hover:scale-105 active:scale-95"
-        style={{ height: 52, width: 52 }}
-      >
+    <nav aria-label="Quick contact actions" className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3" style={{ bottom: 'calc(1.25rem + env(safe-area-inset-bottom))' }}>
+      <a href={directionsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Get directions to ${siteConfig.name}`} data-track-event="click_directions" className="flex h-13 w-13 items-center justify-center rounded-full border border-gold/40 bg-[#111111]/90 text-gold shadow-lg backdrop-blur transition-transform duration-200 hover:scale-105 active:scale-95" style={{ height: 52, width: 52 }}>
+        <MapPin className="h-5 w-5" />
+      </a>
+      <a href={siteConfig.phoneHref} aria-label={`Call ${siteConfig.name}`} data-track-event="click_call" className="flex h-13 w-13 items-center justify-center rounded-full border border-gold/40 bg-[#111111]/90 text-gold shadow-lg backdrop-blur transition-transform duration-200 hover:scale-105 active:scale-95" style={{ height: 52, width: 52 }}>
         <Phone className="h-5 w-5" />
       </a>
-      <a
-        href={whatsappHref()}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-        data-cursor="interactive"
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95"
-      >
+      <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" data-track-event="click_whatsapp" className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95">
         <WhatsAppIcon className="h-7 w-7" />
       </a>
-    </div>
+    </nav>
   )
 }
