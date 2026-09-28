@@ -4,7 +4,7 @@ import { BlogIndexPage } from '@/components/seo/editorial-pages'
 
 export const metadata = createPageMetadata({
   title: `Tattoo Guides in ${siteConfig.city} | Rathnam Tattoos Blog`,
-  description: 'Read practical tattoo cost, cover-up, removal, piercing aftercare and Telugu script guides from Rathnam Tattoos Studio.',
+  description: 'Read practical tattoo cost, cover-up, piercing aftercare and Telugu script guides from Rathnam Tattoos Studio.',
   path: '/blog',
 })
 

@@ -42,14 +42,6 @@ const structuredData = {
       inLanguage: 'en-IN',
       publisher: { '@id': `${siteConfig.url}/studios/${siteConfig.locations[0].slug}#tattoo-parlor` },
     },
-    {
-      '@type': 'Person',
-      '@id': `${siteConfig.url}/#founder`,
-      name: siteConfig.founder.name,
-      jobTitle: siteConfig.founder.role,
-      url: `${siteConfig.url}/about-us`,
-      worksFor: { '@id': `${siteConfig.url}/studios/${siteConfig.locations[0].slug}#tattoo-parlor` },
-    },
     ...siteConfig.locations.map((location) => ({
       '@type': 'TattooParlor',
       '@id': `${siteConfig.url}/studios/${location.slug}#tattoo-parlor`,
@@ -58,7 +50,6 @@ const structuredData = {
       image: `${siteConfig.url}${siteConfig.shareImage}`,
       logo: `${siteConfig.url}${siteConfig.movedLogoImage}`,
       description: siteConfig.description,
-      telephone: [siteConfig.phone, siteConfig.phone2],
       sameAs: [siteConfig.instagramUrl, location.googleBusinessProfileUrl].filter(Boolean),
       address: {
         '@type': 'PostalAddress',
@@ -74,7 +65,6 @@ const structuredData = {
       openingHoursSpecification: location.openingHoursSpecification ?? undefined,
       hasMap: location.mapsDirectionsUrl,
       areaServed: siteConfig.areaServed,
-      founder: { '@id': `${siteConfig.url}/#founder` },
     })),
   ],
 }

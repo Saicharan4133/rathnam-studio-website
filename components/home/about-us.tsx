@@ -2,9 +2,8 @@
 
 import Image from 'next/image'
 import { m } from 'framer-motion'
-import { about, reviewImages, reviewQuotePlaceholders, siteConfig } from '@/lib/site-config'
+import { about } from '@/lib/site-config'
 import { CutReveal } from '@/components/shared/cut-reveal'
-import { ImageMarquee } from '@/components/shared/image-marquee'
 import { InkBackdrop } from '@/components/realm/ink-backdrop'
 
 export function AboutUs() {
@@ -32,29 +31,10 @@ export function AboutUs() {
           <m.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}>
             <p className="micro-label mb-3 text-gold">{about.role}</p>
             <h2 className="font-display text-6xl tracking-tight text-bone md:text-8xl">{about.name}</h2>
-            <p className="mt-6 max-w-md text-base text-bone/65 md:text-lg">{about.statement}</p>
-            <div className="mt-10 flex flex-wrap gap-10 border-t border-bone/10 pt-8">
-              {about.stats.map((stat) => <div key={stat.label}><p className="font-display text-4xl text-gold md:text-5xl">{stat.value}</p><p className="micro-label mt-2 text-bone/60">{stat.label}</p></div>)}
-            </div>
           </m.div>
         </div>
       </div>
 
-      <section className="mx-auto mt-20 max-w-[1600px] px-5 md:px-10" aria-labelledby="client-quotes-title">
-        <h2 id="client-quotes-title" className="micro-label mb-6 text-bone/60">CLIENT WORDS — {siteConfig.confirmations.reviewQuotes}</h2>
-        <div className="grid gap-5 md:grid-cols-3">
-          {reviewQuotePlaceholders.map((item) => (
-            <figure key={item.id} className="border-t border-bone/15 py-5">
-              <blockquote className="text-base leading-7 text-bone/75">“{item.quote}”</blockquote>
-              <figcaption className="micro-label mt-4 text-bone/45">{item.attribution}</figcaption>
-            </figure>
-          ))}
-        </div>
-        <div className="mt-10 border-t border-bone/10 pt-7">
-          <p className="micro-label mb-6 text-bone/45">Client screenshot gallery — secondary examples</p>
-          <ImageMarquee images={reviewImages} caption={`Client testimonial screenshots for ${siteConfig.name}`} durationSeconds={50} imageClassName="!h-64 !w-64 md:!h-80 md:!w-80" />
-        </div>
-      </section>
       <div className="cv-auto pb-20 md:pb-28"><CutReveal /></div>
     </section>
   )

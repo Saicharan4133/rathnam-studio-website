@@ -40,23 +40,23 @@ export function createPageMetadata({
 export const seoMetadata = {
   home: {
     title: `Tattoo Studio in ${siteConfig.city} | ${siteConfig.seoName}`,
-    description: `Custom tattoo, piercing, scar cover-up and removal studio in ${siteConfig.city}. Meet artist ${siteConfig.founder.name} and explore the ${siteConfig.name} portfolio.`,
+    description: `Custom tattoo, piercing and scar cover-up studio in ${siteConfig.city}. Meet ${siteConfig.founder.name} and explore the ${siteConfig.name} portfolio.`,
   },
   services: {
-    title: `Tattoo, Piercing & Removal Services in ${siteConfig.city}`,
-    description: `Explore custom tattoo, piercing, scar cover-up and tattoo removal enquiries at ${siteConfig.name} in ${siteConfig.city}.`,
+    title: `Tattoo, Piercing & Cover-Up Services in ${siteConfig.city}`,
+    description: `Explore custom tattoo, piercing and scar cover-up services at ${siteConfig.name} in ${siteConfig.city}.`,
   },
   gallery: {
     title: `Tattoo Designs & Ideas | ${siteConfig.city} Portfolio`,
     description: `Browse tattoo designs, piercing work and portfolio images from ${siteConfig.name} in ${siteConfig.city}.`,
   },
   about: {
-    title: `About ${siteConfig.founder.name}, Tattoo Artist in ${siteConfig.city}`,
-    description: `Meet ${siteConfig.founder.name}, founder and lead artist at ${siteConfig.name}, with ${siteConfig.founder.experience} of experience and ${siteConfig.founder.projects}.`,
+    title: `About ${siteConfig.founder.name} | ${siteConfig.seoName}`,
+    description: `Meet ${siteConfig.founder.name} and learn more about ${siteConfig.name} in ${siteConfig.city}.`,
   },
   contact: {
     title: `Book a Tattoo in ${siteConfig.city} | ${siteConfig.seoName}`,
-    description: `Enquire about tattoos, piercing, scar cover-up or removal at ${siteConfig.name}. Call or WhatsApp either ${siteConfig.city} studio.`,
+    description: `Enquire about tattoos, piercing or scar cover-up at ${siteConfig.name} in ${siteConfig.city}.`,
   },
 } as const
 

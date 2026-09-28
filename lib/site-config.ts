@@ -4,7 +4,7 @@ export const siteConfig = {
   seoName: 'Rathnam Tattoos Studio',
   shortName: 'RATHNAM',
   tagline: 'INK YOUR STORY',
-  description: 'Custom tattoos, piercing, scar cover-up and tattoo removal in Vijayawada, Andhra Pradesh.',
+  description: 'Custom tattoos, piercing and scar cover-up in Vijayawada, Andhra Pradesh.',
   url: 'https://rathnamstudio.in',
   city: 'Vijayawada',
   state: 'Andhra Pradesh',
@@ -23,15 +23,12 @@ export const siteConfig = {
   founder: {
     name: 'Raja',
     role: 'Founder & lead artist',
-    experience: '5+ years',
-    projects: '500+ projects',
     mainImage: '/images/about/owner-1.webp',
     secondaryImage: '/images/about/owner-2.webp',
-    statement: 'Every piece that leaves this studio carries intention, precision and a story worth keeping forever.',
   },
   logoImage: '/images/logo.jpeg',
   movedLogoImage: '/images/gallery/source-06.webp',
-  shareImage: '/images/og-default.jpg',
+  shareImage: '/images/hero/100-optimized.webp',
   heroImages: {
     home: '/images/hero/100-optimized.webp',
     services: '/images/hero/101.webp',
@@ -46,7 +43,7 @@ export const siteConfig = {
     about: { width: 960, height: 1280 },
     contact: { width: 720, height: 1280 },
   },
-  homeSupportLine: 'Custom tattoo, piercing, scar cover-up and tattoo removal studio in Vijayawada, Andhra Pradesh.',
+  homeSupportLine: 'Custom tattoo, piercing and scar cover-up studio in Vijayawada, Andhra Pradesh.',
   contact: {
     emailjs: {
       serviceId: 'service_ooj39wj',
@@ -56,21 +53,6 @@ export const siteConfig = {
   },
   analytics: {
     googleTagManagerId: '',
-  },
-  confirmations: {
-    hours: '[CONFIRM: provide opening days and hours for each studio]',
-    geo: '[CONFIRM: provide verified latitude and longitude for each studio]',
-    googleBusinessProfile: '[CONFIRM: provide the Google Business Profile URL for each studio]',
-    agePolicy: '[CONFIRM: provide the studio age policy and any guardian requirements]',
-    phoneAssignment: '[CONFIRM: verify whether both phone numbers serve both studios or assign a number to each location]',
-    analytics: '[CONFIRM: add a Google Tag Manager container ID to send event hooks to analytics]',
-    touchUpPolicy: '[CONFIRM: provide the touch-up eligibility, timing and cost policy]',
-    hygiene: '[CONFIRM: provide the studio-approved hygiene and sterilisation description]',
-    removalMethod: '[CONFIRM: confirm whether tattoo removal is currently offered and the method used]',
-    reviewQuotes: '[CONFIRM: provide real client quotes and permission to publish them]',
-    galleryCaptions: '[CONFIRM: provide the verified style and body-area caption for each uncategorised portfolio image]',
-    teluguCopy: '[VERIFY WITH NATIVE SPEAKER]',
-    shareImage: '[CONFIRM: supply a 1200x630 social share image for /images/og-default.jpg]',
   },
   locations: [
     {
@@ -152,19 +134,6 @@ export const siteConfig = {
       gallery: Array.from({ length: 6 }, (_, i) => `/images/services/scar-coverup/scar-coverup-${i + 1}.webp`),
       galleryThumbnails: Array.from({ length: 6 }, (_, i) => `/images/services/thumbnails/scar-coverup-${String(i + 1).padStart(2, '0')}.webp`),
     },
-    {
-      number: '04',
-      slug: 'tattoo-removal',
-      title: 'TATTOO REMOVAL',
-      displayTitle: 'Tattoo Removal',
-      seoTitle: 'Tattoo Removal in Vijayawada | Rathnam Tattoos Studio',
-      seoDescription: 'Ask about tattoo removal in Vijayawada. Available methods, suitability, sessions and expectations must be confirmed in consultation.',
-      description: 'Removal requirements vary depending on the tattoo and individual circumstances. Contact the studio to discuss available options.',
-      extra: null,
-      image: '/images/services/tattoo-removal/tattoo-removal-1.webp',
-      gallery: Array.from({ length: 7 }, (_, i) => `/images/services/tattoo-removal/tattoo-removal-${i + 1}.webp`),
-      galleryThumbnails: Array.from({ length: 7 }, (_, i) => `/images/services/thumbnails/tattoo-removal-${String(i + 1).padStart(2, '0')}.webp`),
-    },
   ],
   nav: [
     { label: 'HOME', href: '/', number: '100' },
@@ -179,7 +148,6 @@ export const siteConfig = {
     { label: 'Permanent tattoo', href: '/services/permanent-tattoo' },
     { label: 'Piercing', href: '/services/piercing' },
     { label: 'Scar cover-up', href: '/services/scar-coverup' },
-    { label: 'Tattoo removal', href: '/services/tattoo-removal' },
     { label: 'Gallery', href: '/gallery' },
     { label: 'About Raja', href: '/about-us' },
     { label: 'Guru Nanak Colony studio', href: '/studios/guru-nanak-colony' },
@@ -188,7 +156,6 @@ export const siteConfig = {
     { label: 'Tattoo aftercare', href: '/tattoo-aftercare' },
     { label: 'Blog', href: '/blog' },
     { label: 'Tattoo cost guide', href: '/blog/tattoo-cost-vijayawada' },
-    { label: 'Removal or cover-up guide', href: '/blog/tattoo-removal-vs-cover-up' },
     { label: 'Piercing aftercare guide', href: '/blog/piercing-aftercare-guide' },
     { label: 'Telugu script tattoo guide', href: '/blog/telugu-name-script-tattoo-ideas' },
     { label: 'Contact', href: '/contact' },
@@ -206,7 +173,7 @@ const verifiedGallery = [
 
 const uncaptionedGallery = Array.from({ length: 39 }, (_, i) => ({
   src: `/images/gallery/img${i + 7}.webp`,
-  caption: `Tattoo artwork — ${siteConfig.confirmations.galleryCaptions} — ${siteConfig.name}, ${siteConfig.city}.`,
+  caption: `Portfolio photo ${i + 6} from ${siteConfig.name}, ${siteConfig.city}.`,
 }))
 
 export const galleryImages = [...verifiedGallery, ...uncaptionedGallery].map((image, index) => ({
@@ -222,24 +189,7 @@ export const about = {
   role: siteConfig.founder.role.toUpperCase(),
   mainImage: siteConfig.founder.mainImage,
   secondaryImage: siteConfig.founder.secondaryImage,
-  statement: siteConfig.founder.statement,
-  stats: [
-    { value: siteConfig.founder.experience, label: 'YEARS EXPERIENCE' },
-    { value: siteConfig.founder.projects, label: 'PROJECTS DONE' },
-  ],
 } as const
-
-export const reviewImages = Array.from({ length: 9 }, (_, i) => ({
-  id: i + 1,
-  src: `/images/reviews/rev${i + 1}.webp`,
-  alt: `Client testimonial screenshot ${i + 1} — ${siteConfig.name}, ${siteConfig.city}.`,
-}))
-
-export const reviewQuotePlaceholders = Array.from({ length: 3 }, (_, i) => ({
-  id: i + 1,
-  quote: siteConfig.confirmations.reviewQuotes,
-  attribution: '[CONFIRM: client name or approved anonymous attribution]',
-}))
 
 export const whatsappHref = (message: string = siteConfig.whatsappMessage) =>
   `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`

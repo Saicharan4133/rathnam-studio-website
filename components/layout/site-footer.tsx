@@ -20,13 +20,6 @@ export function SiteFooter() {
                 <br />
                 {location.line3}, {location.line4}
               </p>
-              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
-                {[{ label: siteConfig.phone, href: siteConfig.phoneHref }, { label: siteConfig.phone2, href: siteConfig.phoneHref2 }].map((phone) => (
-                  <a key={phone.href} href={phone.href} data-track-event="click_call" className="text-sm text-bone/70 underline-offset-4 hover:text-gold hover:underline">
-                    {phone.label}
-                  </a>
-                ))}
-              </div>
               <Link href={`/studios/${location.slug}`} className="micro-label mt-4 inline-flex text-bone/60 underline-offset-4 hover:text-gold hover:underline">
                 Studio details and map
               </Link>
@@ -41,6 +34,10 @@ export function SiteFooter() {
             <div className="flex flex-wrap gap-5 text-sm">
               <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" data-track-event="click_whatsapp" className="text-bone/75 underline-offset-4 hover:text-gold hover:underline">WhatsApp</a>
               <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" className="text-bone/75 underline-offset-4 hover:text-gold hover:underline">{siteConfig.instagramHandle}</a>
+            </div>
+            <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              <a href={siteConfig.phoneHref} data-track-event="click_call" className="text-bone/70 underline-offset-4 hover:text-gold hover:underline">{siteConfig.phone}</a>
+              <a href={siteConfig.phoneHref2} data-track-event="click_call" className="text-bone/70 underline-offset-4 hover:text-gold hover:underline">{siteConfig.phone2}</a>
             </div>
           </div>
           <nav aria-label="All pages" className="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3">

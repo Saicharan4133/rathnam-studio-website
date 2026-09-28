@@ -10,7 +10,6 @@ import {
   faqItems,
   servicePageContent,
   studioPageContent,
-  teluguFaqItems,
   type ContentSection,
   type QuestionAnswer,
 } from '@/lib/seo-content'
@@ -165,15 +164,10 @@ export function StudioDetailPage({ slug }: { slug: string }) {
     >
       <section className="grid gap-8 border-y border-bone/10 py-7 md:grid-cols-2">
         <div>
-          <h2 className="font-display text-2xl text-bone">Address and contact</h2>
+          <h2 className="font-display text-2xl text-bone">Studio location</h2>
           <address className="mt-4 not-italic leading-7 text-bone/70">
             {siteConfig.name}<br />{location.line1}<br />{location.line2}<br />{location.line3}<br />{location.line4}
           </address>
-          <p className="micro-label mt-5 text-gold">Hours: {location.hours ?? siteConfig.confirmations.hours}</p>
-          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-            <a href={siteConfig.phoneHref} data-track-event="click_call" className="text-bone/75 underline-offset-4 hover:text-gold hover:underline">{siteConfig.phone}</a>
-            <a href={siteConfig.phoneHref2} data-track-event="click_call" className="text-bone/75 underline-offset-4 hover:text-gold hover:underline">{siteConfig.phone2}</a>
-          </div>
         </div>
         <MapSection location={location} />
       </section>
@@ -193,7 +187,7 @@ export function FaqPage() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [...faqItems, ...teluguFaqItems].map((item) => ({
+    mainEntity: faqItems.map((item) => ({
       '@type': 'Question',
       name: item.question,
       acceptedAnswer: { '@type': 'Answer', text: item.answer },
@@ -206,17 +200,12 @@ export function FaqPage() {
       <PageFrame
         breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'FAQ', path: '/faq' }]}
         title={`Tattoo and piercing FAQs in ${siteConfig.city}`}
-        intro={`Answers to common questions about tattoo pain, healing, bookings, prices and studio locations at ${siteConfig.name}. Policies that have not been confirmed are marked clearly; please ask the team before booking.`}
+        intro={`Answers to common questions about tattoo pain, healing, bookings, prices and studio locations at ${siteConfig.name}.`}
       >
         <Questions items={faqItems} />
-        <section className="border-t border-bone/10 pt-6">
-          <p className="micro-label mb-5 text-gold">{siteConfig.confirmations.teluguCopy}</p>
-          <Questions items={teluguFaqItems} heading={`Frequently asked questions in Telugu — ${siteConfig.confirmations.teluguCopy}`} />
-        </section>
         <nav aria-label="Helpful studio pages" className="flex flex-wrap gap-x-6 gap-y-3 border-t border-bone/10 pt-6">
           <Link href="/tattoo-aftercare" className="text-sm text-gold underline-offset-4 hover:underline">Read the 30-day tattoo aftercare guide</Link>
           <Link href="/contact" className="text-sm text-gold underline-offset-4 hover:underline">Send a booking enquiry</Link>
-          <Link href="/services/tattoo-removal" className="text-sm text-gold underline-offset-4 hover:underline">Ask about tattoo removal</Link>
         </nav>
       </PageFrame>
     </>
@@ -249,7 +238,6 @@ export function BlogIndexPage() {
       <section aria-label="Studio guides" className="grid gap-5 md:grid-cols-2">
         {blogPosts.map((post) => (
           <article key={post.slug} className="flex flex-col items-start border-t border-bone/10 py-6">
-            <p className="micro-label text-bone/45">{siteConfig.founder.name} · {post.publishedTime}</p>
             <h2 className="mt-3 font-display text-2xl leading-tight text-bone md:text-3xl">{post.title}</h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-bone/65">{post.description}</p>
             <Link href={`/blog/${post.slug}`} className="micro-label mt-5 text-gold underline-offset-4 hover:underline">Read the full guide</Link>
@@ -270,9 +258,6 @@ export function BlogArticlePage({ slug }: { slug: string }) {
     '@type': 'Article',
     headline: post.title,
     description: post.description,
-    datePublished: `${post.publishedTime}T00:00:00.000Z`,
-    dateModified: `${post.publishedTime}T00:00:00.000Z`,
-    author: { '@type': 'Person', name: siteConfig.founder.name, url: absoluteUrl('/about-us') },
     publisher: {
       '@type': 'Organization',
       name: siteConfig.name,
@@ -290,7 +275,6 @@ export function BlogArticlePage({ slug }: { slug: string }) {
         breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }, { name: post.title, path: `/blog/${post.slug}` }]}
         title={post.title}
         intro={post.description}
-        kicker={`${siteConfig.founder.name} · ${post.publishedTime}`}
       >
         <Sections sections={post.sections} />
         <ContactActions message={`Hi, I read “${post.title}” and would like to ask the studio a question.`} />
