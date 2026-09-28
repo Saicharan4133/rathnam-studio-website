@@ -17,8 +17,6 @@ function enquiryMessage(data: FormData) {
     `Name: ${String(data.get('from_name') || '').trim()}`,
     `Phone: ${String(data.get('phone') || '').trim()}`,
     `Email: ${String(data.get('from_email') || '').trim()}`,
-    `Body placement: ${String(data.get('placement') || 'Not specified').trim()}`,
-    `Approximate size: ${String(data.get('size') || 'Not specified').trim()}`,
     `Preferred studio: ${String(data.get('preferred_studio') || 'Not specified').trim()}`,
     `Details: ${String(data.get('message') || '').trim()}`,
   ].join('\n')
@@ -121,7 +119,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="service" className={labelClass}>Service</label>
-        <select id="service" name="service" defaultValue="" required aria-invalid={Boolean(errors.service)} aria-describedby={errors.service ? 'service-error' : undefined} className={inputClass}>
+        <select id="service" name="service" defaultValue="" required aria-invalid={Boolean(errors.service)} aria-describedby={errors.service ? 'service-error' : undefined} className={`${inputClass} contact-form-select`}>
           <option value="" disabled>Select a service</option>
           {siteConfig.services.map((service) => <option key={service.slug} value={service.displayTitle}>{service.displayTitle}</option>)}
         </select>
@@ -129,18 +127,8 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="placement" className={labelClass}>Body placement</label>
-        <input id="placement" name="placement" type="text" autoComplete="off" placeholder="Where are you considering?" className={inputClass} />
-      </div>
-
-      <div>
-        <label htmlFor="size" className={labelClass}>Approximate size</label>
-        <input id="size" name="size" type="text" autoComplete="off" placeholder="Approximate dimensions are helpful" className={inputClass} />
-      </div>
-
-      <div>
         <label htmlFor="preferred_studio" className={labelClass}>Preferred studio</label>
-        <select id="preferred_studio" name="preferred_studio" defaultValue="" required aria-invalid={Boolean(errors.studio)} aria-describedby={errors.studio ? 'studio-error' : undefined} className={inputClass}>
+        <select id="preferred_studio" name="preferred_studio" defaultValue="" required aria-invalid={Boolean(errors.studio)} aria-describedby={errors.studio ? 'studio-error' : undefined} className={`${inputClass} contact-form-select`}>
           <option value="" disabled>Select a Vijayawada studio</option>
           {siteConfig.locations.map((location) => <option key={location.slug} value={location.neighborhood}>{location.neighborhood}</option>)}
         </select>

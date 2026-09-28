@@ -108,6 +108,13 @@
     text-transform: uppercase;
     font-size: 0.72rem;
   }
+  .contact-form-select option {
+    background-color: #111111;
+    color: #f2f0ea;
+  }
+  .contact-form-select option:disabled {
+    color: #9a9892;
+  }
   .text-stroke-gold {
     color: transparent;
     -webkit-text-stroke: 1px rgba(201, 162, 75, 0.35);
