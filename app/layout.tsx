@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Anton, Inter } from 'next/font/google'
 import dynamic from 'next/dynamic'
@@ -63,7 +62,6 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  generator: 'v0.app',
   keywords: [
     'tattoo studio Vijayawada',
     'custom tattoo Andhra Pradesh',
@@ -71,9 +69,6 @@ export const metadata: Metadata = {
     'scar cover-up tattoo',
     'tattoo removal Vijayawada',
   ],
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: `${siteConfig.name} — Ink Your Story`,
     description: siteConfig.description,
@@ -83,7 +78,7 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     images: [
       {
-        url: '/images/services/permanent-tattoo.jpg',
+        url: '/images/hero/100-optimized.webp',
         width: 1200,
         height: 630,
         alt: `${siteConfig.name} — custom tattoo work`,
@@ -94,7 +89,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${siteConfig.name} — Ink Your Story`,
     description: siteConfig.description,
-    images: ['/images/services/permanent-tattoo.jpg'],
+    images: ['/images/hero/100-optimized.webp'],
   },
   icons: {
     icon: [
@@ -149,7 +144,6 @@ export default function RootLayout({
             <div className="film-grain" aria-hidden="true" />
           </SmoothScrollProvider>
         </MotionProvider>
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

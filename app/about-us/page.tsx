@@ -16,11 +16,13 @@ export const metadata: Metadata = {
     description,
     url: '/about-us',
     type: 'website',
+    images: ['/images/hero/100-optimized.webp'],
   },
   twitter: {
     card: 'summary_large_image',
     title: `About Us | ${siteConfig.name}`,
     description,
+    images: ['/images/hero/100-optimized.webp'],
   },
 }
 
