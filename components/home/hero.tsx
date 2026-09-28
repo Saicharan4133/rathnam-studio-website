@@ -35,6 +35,9 @@ export function Hero() {
         <p className="hero-fade-in hero-copy mt-6 max-w-md text-base text-bone/75 md:text-lg">
           Custom tattoos created with precision, creativity and attention to every detail.
         </p>
+        <p className="hero-fade-in mt-3 max-w-xl text-sm leading-6 text-bone/65 md:text-base">
+          {siteConfig.homeSupportLine}
+        </p>
 
         <div className="hero-fade-in hero-actions mt-9 flex flex-wrap items-center gap-5">
           <Link

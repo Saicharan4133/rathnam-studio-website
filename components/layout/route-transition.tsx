@@ -2,25 +2,19 @@
 
 import { AnimatePresence, m, useReducedMotion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import type { ReactNode } from 'react'
+import { useRef, type ReactNode } from 'react'
 
-/**
- * Cinematic ink + ember wipe between routes.
- *
- * Perf note: the overlay animates in its own AnimatePresence, keyed by
- * pathname, that never wraps `children`. The destination route mounts
- * immediately beneath the wipe instead of waiting for an exit animation to
- * finish first — the animation only ever plays on top of already-loaded
- * content, never in place of a loading state. `mode="popLayout"` lets a
- * second, faster wipe interrupt an in-flight one instead of queueing.
- */
 export function RouteTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname()
   const reduceMotion = useReducedMotion()
+  const previousPathname = useRef(pathname)
 
-  if (reduceMotion) {
+  if (reduceMotion || previousPathname.current === pathname) {
+    previousPathname.current = pathname
     return <>{children}</>
   }
+
+  previousPathname.current = pathname
 
   return (
     <>
@@ -40,10 +34,7 @@ export function RouteTransition({ children }: { children: ReactNode }) {
           <m.div
             className="absolute inset-0 flex items-center justify-center"
             initial={{ opacity: 1 }}
-            animate={{
-              opacity: [1, 1, 0],
-              transition: { duration: 0.5, delay: 0.08, times: [0, 0.4, 1] },
-            }}
+            animate={{ opacity: [1, 1, 0], transition: { duration: 0.5, delay: 0.08, times: [0, 0.4, 1] } }}
           >
             <m.span
               className="block h-10 w-10 rotate-45 border border-gold/80"

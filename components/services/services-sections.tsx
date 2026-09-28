@@ -21,7 +21,7 @@ export function ServicesSections({
   const [active, setActive] = useState<{ sectionIndex: number; imageIndex: number } | null>(null)
 
   const activeImages = active ? sections[active.sectionIndex].bandImages : []
-  const lightboxImages = activeImages.map((img, i) => ({ id: i, src: img.src, alt: img.alt }))
+  const lightboxImages = activeImages.map((img, i) => ({ id: i, src: img.fullSrc ?? img.src, alt: img.alt }))
 
   return (
     <>

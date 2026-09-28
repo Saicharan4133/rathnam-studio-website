@@ -21,6 +21,7 @@ const rows = [
   galleryImages.filter((_, i) => i % 3 === 1),
   galleryImages.filter((_, i) => i % 3 === 2),
 ]
+const fullSizeGalleryImages = galleryImages.map((image) => ({ ...image, src: image.fullSrc }))
 
 export function GalleryView() {
   useIdlePreload(initialGalleryImageSrcs, 3)
@@ -31,7 +32,7 @@ export function GalleryView() {
     <>
       <GalleryRows rows={rows} onSelect={(img) => setActiveId(img.id)} />
       <Lightbox
-        images={galleryImages}
+        images={fullSizeGalleryImages}
         index={activeIndex}
         onClose={() => setActiveId(null)}
         onNavigate={(next) => setActiveId(galleryImages[next].id)}
