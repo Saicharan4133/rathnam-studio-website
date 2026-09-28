@@ -30,10 +30,36 @@ const inter = Inter({
   display: 'swap',
 })
 
+// Tells Google this is a tattoo studio with two locations in Vijayawada.
+// Everything is read from lib/site-config.ts.
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': siteConfig.locations.map((loc, i) => ({
+    '@type': 'TattooParlor',
+    '@id': `${siteConfig.url}/#studio-${i + 1}`,
+    name: siteConfig.name,
+    url: siteConfig.url,
+    image: `${siteConfig.url}/images/logo.jpeg`,
+    description: siteConfig.description,
+    telephone: [siteConfig.phoneHref, siteConfig.phoneHref2].map((h) =>
+      h.replace('tel:', '')
+    ),
+    sameAs: [siteConfig.instagramUrl],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: `${loc.line1}, ${loc.line2}`,
+      addressLocality: siteConfig.city,
+      addressRegion: siteConfig.state,
+      postalCode: loc.line3.match(/\d{6}/)?.[0],
+      addressCountry: 'IN',
+    },
+  })),
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Vijayawada`,
+    default: `${siteConfig.name} | Tattoo Studio in Vijayawada`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -104,6 +130,10 @@ export default function RootLayout({
     <html lang="en" className="dark" style={{ backgroundColor: '#0a0a0a' }}>
       <head>
         <link rel="preconnect" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </head>
       <body
         className={`${anton.variable} ${inter.variable} antialiased bg-background text-foreground`}
