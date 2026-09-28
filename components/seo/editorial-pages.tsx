@@ -136,7 +136,7 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
         <ContactActions message={`Hi, I would like to ask about ${service.displayTitle.toLowerCase()} in ${siteConfig.city}.`} />
         <Sections sections={content.sections} />
         <Questions items={content.faqs} />
-        <RelatedGallery ids={content.galleryImageIds} />
+        {content.galleryImageIds.length > 0 && <RelatedGallery ids={content.galleryImageIds} />}
         <section className="border-t border-bone/10 pt-6">
           <h2 className="font-display text-2xl text-bone">Explore related services</h2>
           <nav aria-label="Related services" className="mt-4 flex flex-wrap gap-x-6 gap-y-3">

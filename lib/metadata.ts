@@ -40,11 +40,11 @@ export function createPageMetadata({
 export const seoMetadata = {
   home: {
     title: `Tattoo Studio in ${siteConfig.city} | ${siteConfig.seoName}`,
-    description: `Custom tattoo, piercing and scar cover-up studio in ${siteConfig.city}. Meet ${siteConfig.founder.name} and explore the ${siteConfig.name} portfolio.`,
+    description: `Custom tattoo, piercing, scar cover-up and tattoo removal studio in ${siteConfig.city}. Meet ${siteConfig.founder.name} and explore the ${siteConfig.name} portfolio.`,
   },
   services: {
-    title: `Tattoo, Piercing & Cover-Up Services in ${siteConfig.city}`,
-    description: `Explore custom tattoo, piercing and scar cover-up services at ${siteConfig.name} in ${siteConfig.city}.`,
+    title: `Tattoo, Piercing, Cover-Up & Removal in ${siteConfig.city}`,
+    description: `Explore custom tattoos, piercing, scar cover-up and tattoo removal at ${siteConfig.name} in ${siteConfig.city}.`,
   },
   gallery: {
     title: `Tattoo Designs & Ideas | ${siteConfig.city} Portfolio`,
@@ -56,7 +56,7 @@ export const seoMetadata = {
   },
   contact: {
     title: `Book a Tattoo in ${siteConfig.city} | ${siteConfig.seoName}`,
-    description: `Enquire about tattoos, piercing or scar cover-up at ${siteConfig.name} in ${siteConfig.city}.`,
+    description: `Enquire about tattoos, piercing, scar cover-up or tattoo removal at ${siteConfig.name} in ${siteConfig.city}.`,
   },
 } as const
 

@@ -152,6 +152,47 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     ],
     galleryImageIds: [3, 4, 11, 17, 23, 29],
   },
+  'tattoo-removal': {
+    intro: `Rathnam Tattoos Studio offers tattoo removal in ${siteConfig.city}. If you are considering changing or removing a tattoo, contact the team to discuss your questions and next steps. The appropriate approach and expectations depend on the individual tattoo and should be discussed before booking.`,
+    sections: [
+      {
+        heading: 'Start with a conversation',
+        paragraphs: [
+          'When you enquire, describe the tattoo’s approximate size and body area, what you hope to change, and any questions you have. The team can explain what information is useful and how to proceed with an individual discussion.',
+          'Avoid assuming a particular technique or outcome before talking with the studio. Ask what the process involves and whether an assessment is needed before making a decision.',
+        ],
+      },
+      {
+        heading: 'Questions to ask before booking',
+        paragraphs: [
+          'Ask about the approach used, who carries out the service, how suitability is considered, and what the appointment includes. You can also ask about pricing, aftercare, possible risks and what results can realistically be expected for your tattoo.',
+          'These details can vary by individual case. Discuss them with the studio before booking rather than relying on a general estimate or a result shown in a photograph.',
+        ],
+      },
+      {
+        heading: 'Set realistic expectations',
+        paragraphs: [
+          'Tattoo removal results and treatment plans are not the same for everyone. A specific number of sessions, timeline or final result cannot be promised on this page; raise those questions with the studio after discussing your tattoo.',
+          'Take time to understand the proposed plan, its limits and the costs involved. You can ask follow-up questions before deciding whether to proceed.',
+        ],
+      },
+      {
+        heading: 'Health and skin questions',
+        paragraphs: [
+          'This page provides general service information, not medical advice or an assessment of your skin. If you have a health concern or are unsure whether a procedure is appropriate for you, speak with a qualified healthcare professional and discuss your concerns with the studio.',
+          'Before booking, ask what aftercare guidance is provided and who to contact if you have a concern after an appointment.',
+        ],
+      },
+    ],
+    faqs: [
+      { question: `Do you offer tattoo removal in ${siteConfig.city}?`, answer: 'Yes. Tattoo removal is offered by Rathnam Tattoos Studio. Contact the team to discuss your tattoo and the next steps before booking.' },
+      { question: 'Which tattoo removal method do you use?', answer: 'Contact the studio to discuss the approach and assessment process before booking.' },
+      { question: 'How many sessions will I need?', answer: 'The treatment plan depends on the individual tattoo. Discuss session expectations with the studio; no specific number or timeline is promised here.' },
+      { question: 'How much does tattoo removal cost?', answer: 'Contact the studio to discuss your tattoo and request pricing information for your situation.' },
+      { question: 'Is a particular result guaranteed?', answer: 'No result is guaranteed on this page. Ask the studio what outcomes may be realistic for your tattoo.' },
+    ],
+    galleryImageIds: [],
+  },
 }
 
 export const studioPageContent = {
