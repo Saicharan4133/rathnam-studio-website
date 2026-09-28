@@ -53,6 +53,10 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
+    window.history.scrollRestoration = 'manual'
+  }, [])
+
+  useEffect(() => {
     const frame = requestAnimationFrame(() => {
       window.scrollTo(0, 0)
       activeLenis?.scrollTo(0, { immediate: true })
